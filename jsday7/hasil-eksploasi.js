@@ -38,7 +38,7 @@
 // namafilm[1] = 'marvel'  
 // console.log(namafilm);
 
-//===== soal 7 ======
+// ===== soal 7 ======
 
 // let olahraga = ['basket', 'sepakbola', 'renang']
 // olahraga.unshift('futsal')
