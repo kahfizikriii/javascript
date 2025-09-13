@@ -15,7 +15,7 @@ perpustakaan.alamat = "Jl.pendidikan no. 123"
 perpustakaan.tahunberdiri = 1995
 
 //6.
-daftarpengunjung.push ['kahfi', 'irgi', 'xena']
+daftarpengunjung.push ['kahfi', 'irgi', 'xena'] 
 
 
 //7.
