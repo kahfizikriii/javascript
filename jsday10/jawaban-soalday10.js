@@ -12,7 +12,7 @@ const menumakanan = {
                 tersedia : true
             }
             this.data.push(objmakanan)
-            console.log(`${item} ditambahkan`); 
+            console.log(`${item.nama} ditambahkan`); 
         }
     });
     },
@@ -24,7 +24,7 @@ const menumakanan = {
             return;
         }   
         this.data.forEach((item, index) => {
-            let {id, nama, harga, tersedia} = item
+            let {id, nama, harga, tersedia} = item;
             let status = tersedia ? "Tersedia" : "Tidak tersedia"
             console.log(`${index+1}.[${id}] ${nama} - Rp.${harga} (${status}]`)
         });
@@ -33,14 +33,14 @@ const menumakanan = {
     editharga : function ( updateData) {
         const index = this.data.findIndex(item => item.id === updateData.id);
         if(index === -1){
-            console.log(`harga menu id ${id} tidak ditemukan`);
+            console.log(`harga menu id  ${updateData.id} tidak ditemukan`);
             return;
         }
         this.data[index] = {
             ...this.data[index],
             harga : updateData.harga
         };
-        console.log(`harga menu id ${updateData} berhasil di update!`);
+        console.log(`harga menu id ${updateData.id} berhasil di update!`);
     },
 
     hapusbanyak : function (...ids) {
