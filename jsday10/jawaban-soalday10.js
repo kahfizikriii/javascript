@@ -49,7 +49,7 @@ const menumakanan = {
             if(index !== -1){
                 let {nama} = this.data[index]  
                 this.data.splice(index, 1)
-                console.log(`berhasil ${nama} dihapus`)
+                console.log(`berhasil ${nama} dihapus`) 
             }
         })
     },

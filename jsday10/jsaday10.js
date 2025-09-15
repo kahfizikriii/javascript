@@ -54,27 +54,23 @@
 // console.log(c);
 
 
-let mobil = {
-    merk : "bmw",
-    tahun : "2020"
-}
-let {merk, tahun} = mobil
-console.log(merk);
+// let mobil = {
+//     merk : "bmw",
+//     tahun : "2020"
+// }
+// let {merk, tahun} = mobil
+// console.log(merk);
 
 
-let Nama = ["kahfi", "irgi", "ucup"]
-let nama2 = ["xena", "tsaqif", ...Nama]
-console.log(nama2);
+// let Nama = ["kahfi", "irgi", "ucup"]
+// let nama2 = ["xena", "tsaqif", ...Nama]
+// console.log(nama2);
 
 
-function angka (...number) {
-    return number.reduce ((a, b) => a + b)
-}
-console.log( angka (99, 89, 39, 76, 20));
-
-
-
-
+// function angka (...number) {
+//     return number.reduce ((a, b) => a + b)
+// }
+// console.log( angka (99, 89, 39, 76, 20));
 
 
 
