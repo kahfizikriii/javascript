@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+   
+  </style>
+</head>
+<body>
+
+  <!-- Soal 1 -->
+  <p id="p1">Teks awal</p>
+
+  <!-- Soal 2 -->
+  <p class="paragraf">Paragraf 1</p>
+  <p class="paragraf">Paragraf 2</p>
+  <p class="paragraf">Paragraf 3</p>
+
+  <!-- Soal 3 -->
+  <ul id="list">
+    <li>List 1</li>
+    <li>List 2</li>
+    <li>List 3</li>
+    <li>List 4</li>
+    <li>List 5</li>
+  </ul>
+
+  <!-- Soal 4 -->
+  <img id="foto" src="awal.jpg" width="150">
+
+  <!-- Soal 5 -->
+  <p class="teks">....</p>
+  <p class="teks">....</p>
+  <p class="teks">....</p>
+  <p class="teks">....</p>
+
+  <!-- Soal 6 -->
+  <p id="awal">Awal</p>
+
+  <!-- Soal 7 -->
+  <p id="belajar">Belajar DOM</p>
+
+  <!-- Soal 8 -->
+  <div id="kosong"></div>
+
+  <!-- Soal 9 -->
+  <p id="hide">Sembunyikan saya</p>
+
+  <!-- Soal 10 -->
+  <p id="show">Tampilkan saya</p>
+
+  <!-- Soal 11 -->
+  <p class="warna">Paragraf 1</p>
+  <p class="warna">Paragraf 2</p>
+  <p class="warna">Paragraf 3</p>
+
+  <!-- Soal 12 -->
+  <div id="box"></div>
+
+  <!-- Soal 13 -->
+  <a id="link">Klik Aku</a>
+
+  <!-- Soal 14 -->
+  <p class="upper">Paragraf A</p>
+  <p class="upper">Paragraf B</p>
+  <p class="upper">Paragraf C</p>
+
+  <!-- Soal 15 -->
+  <p id="judul">Judul Lama</p>
+
+
+  <!-- Soal 16 -->
+  <ul>
+    <li class="item">Item 1</li>
+    <li class="item">Item 2</li>
+    <li class="item">Item 3</li>
+    <li class="item">Item 4</li>
+    <li class="item">Item 5</li>
+  </ul>
+
+  <!-- Soal 17 -->
+  <img class="img" src="a.jpg" width="100">
+  <img class="img" src="b.jpg" width="100">
+  <img class="img" src="c.jpg" width="100">
+
+  <!-- Soal 18 -->
+  <p id="hello">Hello</p>
+
+  <!-- Soal 19 -->
+  <p id="namaSurat"></p>
+
+  <!-- Soal 20 -->
+  <ul id="daftarSurat"></ul>
+
+  <script>
+
+    // Soal 1
+    document.getElementById("p1").innerText = "Halo DOM!";
+
+    // Soal 2
+    const paragraf = document.getElementsByClassName("paragraf");
+    for (let p of paragraf) {
+      p.style.color = "blue";
+    }
+
+    // Soal 3
+    const li = document.getElementsByTagName("li");
+    for (let i = 0; i < li.length; i++) {
+      li[i].innerText += " - item";
+    }
+
+    // Soal 4
+    document.querySelector("foto").src = "namagambar.jpg";
+
+    // Soal 5
+    const teks = document.querySelectorAll(".teks");
+    teks.forEach((p, i) => {
+      p.innerText = `Teks ke-${i + 1}`;
+    });
+
+    // Soal 6
+    document.getElementById("awal").innerText = "Akhir";
+
+    // Soal 7
+    document.getElementById("belajar").innerHTML = "<strong>Belajar DOM</strong>";
+
+    // Soal 8
+    document.getElementById("kosong").innerText = "Isi baru dari JS";
+
+    // Soal 9
+    document.getElementById("hide").style.display = "none";
+
+    // Soal 10
+    document.getElementById("show").style.display = "block";
+
+
+    // Soal 11
+    const warna = ["red", "green", "blue"];
+    document.querySelectorAll(".warna").forEach((p, i) => {
+      p.style.color = warna[i];
+    });
+
+    // Soal 12
+    const box = document.getElementById("box");
+    box.style.width = "200px";
+    box.style.height = "200px";
+    box.style.background = "yellow";
+
+    // Soal 13
+    const link = document.getElementById("link");
+    link.setAttribute("href", "https://google.com");
+    link.setAttribute("target", "_blank");
+
+    // Soal 14
+    document.querySelectorAll(".upper").forEach(p => {
+      p.innerText = p.innerText.toUpperCase();
+    });
+
+    // Soal 15
+    document.getElementById("judul").classList.add("highlight");
+
+    // ====================
+    // Level 3 - Sulit
+    // ====================
+
+    // Soal 16
+    document.querySelectorAll(".item").forEach((li, i) => {
+      if (i % 2 === 0) {
+        li.style.color = "red";
+      } else {
+        li.style.color = "blue";
+      }
+    });
+
+    // Soal 17
+    document.querySelectorAll(".img").forEach(img => {
+      img.src = "placeholder.jpg";
+    });
+
+    // Soal 18
+    const hello = document.getElementById("hello");
+    hello.style.color = "white";
+    hello.style.background = "black";
+    hello.style.fontSize = "30px";
+
+    // Soal 19
+    fetch("https://equran.id/api/v2/surat/1")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("namaSurat").innerText = data.data.namaLatin;
+      });
+
+    // Soal 20
+    fetch("https://equran.id/api/v2/surat")
+      .then(res => res.json())
+      .then(data => {
+        const daftar = document.getElementById("daftarSurat");
+        data.data.slice(0, 5).forEach(surat => {
+          const li = document.createElement("li");
+          li.innerText = surat.namaLatin;
+          daftar.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
