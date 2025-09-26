@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--6.-->
+    <input type="text" id="username" placeholder="username" />
+    <button id="btn1" onclick="simpandata()">simpan</button><br />
+    <!--7.-->
+    <button id="btn2" onclick="tampilandata()">klik</button>
+    <p id="hasil"></p>
+    <!--8.-->
+    <form id="loginForm">
+      <input type="text" id="loginUsername" placeholder="no.8" />
+      <input type="password" id="loginPassword" placeholder="no.8" />
+      <button type="submit">Login</button>
+      <!--9-->
+      <label>no.9 =></label>
+      <button onclick="logout()">Logout</button>
+      <p id="hasilLogin"></p>
+    </form>
+    <!--  10 -->
+    <label>no.10:</label>
+    <p id="count">0</p>
+    <button onclick="tambah()">tambah</button>
+    <!-- 11-12 -->
+    <select id="themeSelect" onchange="simpanTema()">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+    <!--13, 14, 15-->
+    <input type="text" id="barangInput" placeholder="N0.13-14-15" />
+    <button onclick="tambahBarang()">Tambah Barang</button>
+    <button onclick="clearBelanja()">Clear All</button>
+    <ul id="listBelanja"></ul>
+    <!--16, 17-->
+    <label>no. 16-17:</label>
+    <form onsubmit="simpanBiodata(event)">
+      <input type="text" id="bioNama" placeholder="Nama" />
+      <input type="number" id="bioUmur" placeholder="Umur" />
+      <input type="email" id="bioEmail" placeholder="Email" />
+      <button type="submit">Simpan Biodata</button>
+    </form>
+    <p id="showBiodata"></p>
+    <!--18, 19-->
+    <form onsubmit="cekUsername(event)">
+      <input type="text" id="newUser" placeholder="no. 18-19" />
+      <button type="submit">Cek & Simpan</button>
+    </form>
+    <!--20-->
+    <form onsubmit="rememberLogin(event)">
+      <input type="text" id="rememberUser" placeholder="no.20" />
+      <input type="password" placeholder="Password" />
+      <label> <input type="checkbox" id="rememberCheck" /> Remember Me </label>
+      <button type="submit">Login</button>
+    </form>
+
+    <script>
+            //6.
+            function simpandata(){
+                let nama = document.getElementById("username").value;
+                localStorage.setItem("user",nama)
+                alert("disimpan")
+            }
+            //7.
+            function tampilandata(){
+                let nama = localStorage.getItem("user")
+                document.getElementById("hasil").innerHTML = nama
+            }
+        //8.
+            document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            let use = document.getElementById("loginUsername").value;
+            let pass = document.getElementById("loginPassword").value;
+
+            localStorage.setItem("loginUsername", use);
+            localStorage.setItem("loginPassword", pass);
+
+            document.getElementById("hasilLogin").innerText = "Login berhasil, data tersimpan untuk: " + use;
+        })
+        //9
+        function logout() {
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
+            document.getElementById("hasil").innerText = "Logout berhasil";
+        }
+        //10
+      let counter = localStorage.getItem("counter");
+
+        if (counter === null) {
+          counter = 0;
+        } else {
+          counter = parseInt(counter);
+        }
+
+        document.getElementById("count").innerText = counter;
+
+        function tambah() {
+          counter++;
+          document.getElementById("count").innerText = counter;
+          localStorage.setItem("counter", counter);
+        }
+        //11 - 12
+           function simpanTema() {
+          let theme = document.getElementById("themeSelect").value;
+          localStorage.setItem("theme", theme);
+          applyTheme();
+        }
+        function applyTheme() {
+          let theme = localStorage.getItem("theme");
+          if (theme === "dark") {
+            document.body.style.background = "black";
+            document.body.style.color = "white";
+            document.getElementById("themeSelect").value = "dark";
+          } else {
+            document.body.style.background = "white";
+            document.body.style.color = "black";
+            document.getElementById("themeSelect").value = "light";
+          }
+        }
+        //13, 14, 15
+          let belanja = JSON.parse(localStorage.getItem("listBelanja")) || [];
+        function renderBelanja() {
+          let ul = document.getElementById("listBelanja");
+          ul.innerHTML = "";
+          belanja.forEach(item => {
+            let li = document.createElement("li");
+            li.innerText = item;
+            ul.appendChild(li);
+          });
+        }
+        function tambahBarang() {
+          let barang = document.getElementById("barangInput").value;
+          belanja.push(barang);
+          localStorage.setItem("listBelanja", JSON.stringify(belanja));
+          renderBelanja();
+        }
+        function clearBelanja() {
+          localStorage.removeItem("listBelanja");
+          belanja = [];
+          renderBelanja();
+        }
+        renderBelanja();
+        //16, 17
+        function simpanBiodata(event) {
+          event.preventDefault();
+          const nama = document.getElementById("bioNama").value;
+          const umur = document.getElementById("bioUmur").value;
+          const email = document.getElementById("bioEmail").value;
+
+          localStorage.setItem("bioNama", nama);
+          localStorage.setItem("bioUmur", umur);
+          localStorage.setItem("bioEmail", email);
+
+          tampilkanBiodata();
+        }
+
+        function tampilkanBiodata() {
+          const nama = localStorage.getItem("bioNama");
+          const umur = localStorage.getItem("bioUmur");
+          const email = localStorage.getItem("bioEmail");
+          if (nama && umur && email) {
+            document.getElementById("showBiodata").innerText = `Nama: ${nama}, Umur: ${umur}, Email: ${email}`;
+          }
+        }
+        tampilkanBiodata();
+        //18, 19
+         function cekUsername(e) {
+          e.preventDefault();
+          let user = localStorage.getItem("username");
+          if (user) {
+            localStorage.setItem("username", document.getElementById("newUser").value);
+          } else {
+            localStorage.setItem("username", document.getElementById("newUser").value);
+          }
+        }
+        //20
+            function rememberLogin(e) {
+          e.preventDefault();
+          let user = document.getElementById("rememberUser").value;
+          let check = document.getElementById("rememberCheck").checked;
+          if (check) {
+            localStorage.setItem("rememberUser", user);
+          }
+        }
+        window.onload = function() {
+          applyTheme();
+          let remembered = localStorage.getItem("rememberUser");
+          if (remembered) {
+            document.getElementById("rememberUser").value = remembered;
+          }
+        }
+    </script>
+  </body>
+</html>

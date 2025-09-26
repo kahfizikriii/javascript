@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <!--6.-->
+        <input type="text" name="nama" required><br>
+        <!--7.-->
+        <input type="number" name="umur" min="18" max="60"  required><br>
+        <!--8.-->
+        <input type="password" name="password" minlength="8"  required><br>
+        <!--9.-->
+        <input type="email" name="email" required><br>
+        <!--10.-->
+        <input type="text" name="nomortelpon" pattern="[0-9]{10,12}" required><br>
+        <!--11.-->
+        <input type="text" name="userame" pattern="[a-z]+" required><br>
+        <!--12.-->
+        <input type="text" name="kodepos" pattern="[0-9]{5}" required><br>
+        <!--13.-->
+        <input type="date" name="tanggallahir" max="2019-12-31" required><br>
+        <!--14.-->
+        <input type="url" name="link" required><br>
+        <!--15.-->
+        <input type="text" name="angkagenap" pattern="(0|2|4|6|8)$" required><br>
+    </form>
+    <!--16.-->
+    <form id="form-16">
+        <input id="nama-input" type="text" name="nama"><br>
+        <button type="submit">Submit</button>
+    </form>
+    <!--17.-->
+    <form id="form-17">
+        <input id="number" type="number" name="angka"><br>
+        <button type="submit">Submit</button><br>
+    </form>
+    <!--18.-->
+    <form id="form-18">
+        <input id="password" type="password" name="password" required><br>
+        <button type="submit">Submit</button><br>
+    </form>
+    <!--19.-->
+    <form id="form-19">
+        <input id="email" type="emaail" name="email" placeholder="emaail"><br>
+        <button type="submit">Submit</button><br>
+    </form>
+    <!--20.-->
+    <form id="form-20">
+        <input id="number" type="number" name="angka"><br>
+        <button type="submit">submit</button>
+    </form>
+    <!--21.-->
+    <form id="form-21">
+        <input id ="password" name="password" placeholder="masukan password"><br>
+        <input id ="password2" name="password2" placeholder="confirm password"><br>
+        <button type="submit">submit</button><br>
+    </form>
+    <!--22.-->
+    <form id="form-22">
+        <input id="date" type="date" name="date" required><br>
+        <button type="submit">submit</button><br>
+    </form>
+    <!--23.-->
+    <form id="form-23">
+        <input id="userame" type="text" name="userame" placeholder="masukan username"><br>
+        <button type="submit">submit</button><br>
+    </form>
+    <!--24.-->
+    <form id="form-24">
+        <input type="text" id="username" name="username"><br><br>
+        <input type="password" id="password" name="password"><br><br>
+        <button type="submit">Login</button>
+    </form>
+    <!--25.-->
+    <form id="form-25">
+        <input id="check" type="checkbox"  name="check"><br>
+        <button type="submit">submit</button>
+    </form>
+    <!--26.-->
+    <form id="form-26">
+        <input type="number" id="angka" name="angka"><br>
+        <button type="submit">submit</button>
+    </form>
+    <!--27.-->
+    <form id="form-27">
+        <label> Komentar (max 200 karakter): <br>
+        <textarea id="komentar" rows="5" cols="40" required></textarea>
+        </label><br><br>
+        <button type="submit">Kirim</button>
+    </form>
+    <!--28.-->
+    <form id="form-28">
+         <label>Pilih jurusan:
+             <select id="jurusan" required>
+            <option value="">Pilih Jurusan</option>
+            <option value="TI">Teknik Informatika</option>
+            <option value="SI">Sistem Informasi</option>
+            <option value="DKV">Desain Komunikasi Visual</option>
+            </select>
+        </label><br><br>
+        <button type="submit">Kirim</button>
+    </form>
+    <!--29.-->
+    <form id="myForm">
+        <label>Upload foto (.jpg / .png):
+        <input type="file" id="fileInput" required>
+        </label><br><br>
+        <button type="submit">Kirim</button>
+    </form>
+    <!--30.-->
+    <form id="registerForm">
+        <label>Nama:
+            <input type="text" id="nama" required>
+        </label><br><br>
+        <label>Email:
+            <input type="email" id="email" required>
+        </label><br><br>
+        <label>Password (min. 6 karakter):
+            <input type="password" id="password" required>
+        </label><br><br>
+        <button type="submit">Daftar</button>
+    </form>
+    
+    <script>
+        //16.
+        document.getElementById("form-16").addEventListener("submit", function(e){
+            e.preventDefault(); 
+            let name = document.getElementById("nama-input").value;
+            if (name === ""){
+                alert("Nama wajib diisi");
+            }
+            else{
+                alert("berhasil"+ " "+ name)
+            }
+        })
+        //17.
+        document.getElementById("form-17").addEventListener("submit", function(e){
+            e.preventDefault(); 
+            let angka = document.getElementById("number").value;
+            if (angka.length <18){
+                alert("minimal 18 tahun");
+            }
+            else{
+                alert("boleh masuk");
+            }
+        })
+        //18.
+        document.getElementById("form-18").addEventListener("submit", function(e){
+            e.preventDefault(); 
+            let password = document.getElementById("password").value;
+            if (password.length <8){
+                alert("minimal 8 karakter");
+            }
+            else{
+                alert("berhasil");
+            }
+        })
+        //19.
+        document.getElementById("form-19").addEventListener("submit", function(e){
+            e.preventDefault(); 
+            let email = document.getElementById("email").value;
+            let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!regex.test(email)){
+                alert("email tidak valid");
+            }
+            else{
+                alert("email valid");
+            }
+        })
+        //20.
+        document.getElementById("form-20").addEventListener("submit", function(e){
+            e.preventDefault(); 
+            let angka = document.getElementById("angka").value;
+            if(isNaN(angka)){
+                alert("input harus angka");
+            }
+            else{
+                alert("berhasil");
+            }
+        })
+        //21.
+        document.getElementById('form-21').addEventListener('submit', function(event) {
+            const p1 = document.getElementById('password').value;
+            const p2 = document.getElementById('password2').value;
+            if (p1 !== p2) 
+            {
+            alert("Password dan konfirmasi harus sama.");
+             event.preventDefault(); 
+            }
+            else{
+                alert("berhasil");
+            }
+        });
+        //22.
+        document.getElementById("form-22").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const inputTanggal = document.getElementById("date").value;
+            const tanggalDipilih = new Date(inputTanggal);
+            const hariIni = new Date();
+
+            if (tanggalDipilih > hariIni) {
+                alert("Tanggal tidak boleh lewat dari hari ini");
+            } else {
+                alert("Tanggal valid");
+            }
+        });
+        //23.
+        document.getElementById("form-23").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const username = document.getElementById("userame").value;
+            const regex = /^[a-zA-Z0-9]{5,}$/;
+            if (!regex.test(username)) {
+                alert("Username hanya boleh mengandung huruf dan angka");
+            } else {
+                alert("Username valid");
+            }
+        });
+        //24.
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            const userame = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (!userame || !password) {
+            alert("Isi semua field");
+             ev.preventDefault(); 
+            } else {
+                alert("berhasil");
+            }
+        });
+        //25.
+        document.getElementById("form-25").addEventListener("submit", function(e) {
+            let checkbox = document.getElementById("check");
+            if (!checkbox.checked) {
+            alert("centang setuju terlebih dahulu");
+            e.preventDefault(); 
+            }
+        });
+        //26.
+        document.getElementById("form-26").addEventListener("submit", function(e) {
+            let value = document.getElementById("angka").value;
+             value = Number(value);
+            if (value % 2 !== 0) {
+            alert("Angka harus genap!");
+            e.preventDefault(); 
+            }
+        });
+        //27.
+        document.getElementById("form-27").addEventListener("submit", function(event) {
+            let value = document.getElementById("komentar").value;
+            if (value.length > 200) {
+            alert("Komentar tidak boleh lebih dari 200 karakter! Saat ini: " + value.length);
+            event.preventDefault(); 
+            }
+        });
+        //28.
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            let select = document.getElementById("jurusan");
+            if (select.value === "") {
+            alert("Silakan pilih jurusan terlebih dahulu!");
+            event.preventDefault(); 
+            }
+        });
+        //29.
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            let fileInput = document.getElementById("fileInput");
+            let filePath = fileInput.value.toLowerCase(); 
+            if (!(filePath.endsWith(".jpg") || filePath.endsWith(".png"))) {
+            alert("Hanya file .jpg atau .png yang diperbolehkan!");
+            event.preventDefault(); // blokir submit
+            }
+        });
+        //30.
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            let nama = document.getElementById("nama").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value;
+            let polaEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (nama === "") {
+                alert("Nama wajib diisi!");
+                event.preventDefault();
+            } else if (!polaEmail.test(email)) {
+                alert("Format email tidak valid!");
+                event.preventDefault();
+            } else if (password.length < 6) {
+                alert("Password minimal 6 karakter!");
+                event.preventDefault();
+            } else {
+                alert("Sukses! Form berhasil dikirim.");
+            }
+        });
+    </script>
+</body>
+</html>
