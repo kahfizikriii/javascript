@@ -1,0 +1,18 @@
+.card {
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 250px;
+}
+
+.card-title {
+  color: darkgreen;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.card-bio {
+  color: #666;
+  margin-top: 8px;
+}
