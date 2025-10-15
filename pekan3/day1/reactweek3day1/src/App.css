@@ -1,0 +1,33 @@
+/* Container utama untuk seluruh aplikasi */
+.app-container {
+  max-width: 960px;
+  margin: 2rem auto; /* Memberi margin atas/bawah dan memusatkan secara horizontal */
+  padding: 1rem;
+  font-family: sans-serif;
+}
+
+/* Garis pemisah antar bagian */
+.app-container hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 2rem 0;
+}
+
+/* Gaya untuk setiap kartu/bagian */
+.component-card {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Layout untuk bagian keranjang belanja */
+.cart-section {
+  display: flex;
+  flex-wrap: wrap; /* Agar responsif di layar kecil */
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}

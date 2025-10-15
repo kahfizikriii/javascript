@@ -1,0 +1,23 @@
+.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+  transition: all 0.3s;
+}
+
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  transition: all 0.3s;
+}
+
+button {
+  margin: 5px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
