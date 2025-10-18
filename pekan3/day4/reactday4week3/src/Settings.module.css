@@ -1,0 +1,20 @@
+.container {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.heading {
+  color: #2d3748; /* Warna abu-abu gelap */
+  border-bottom: 2px solid #e2e8f0; /* Garis bawah tipis */
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.paragraph {
+  color: #4a5568; /* Warna abu-abu sedikit lebih terang */
+  line-height: 1.6;
+  font-size: 1rem;
+}
