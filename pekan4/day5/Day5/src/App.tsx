@@ -1,4 +1,3 @@
-
 import React from "react";
 import { RegistrationForm } from "./components/RegisterForm";
 import { MultiStepForm } from "./components/MultiStepForm";
